@@ -52,6 +52,10 @@ INSTALLED_APPS = [
 
     # internal apps
     'openweathermap.weather',
+
+    # external apps
+    'rangefilter',
+    'import_export',
 ]
 
 MIDDLEWARE = [
