@@ -2,3 +2,5 @@ Django==3.2.9
 psycopg2-binary==2.9.2
 python-dotenv==0.19.2
 requests==2.26.0
+django-admin-rangefilter==0.8.2
+django-import-export==2.6.1
