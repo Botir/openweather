@@ -5,3 +5,5 @@ requests==2.26.0
 django-admin-rangefilter==0.8.2
 django-import-export==2.6.1
 djangorestframework==3.12.4
+celery==5.2.1
+redis==4.0.2

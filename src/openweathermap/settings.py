@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os.path
 from pathlib import Path
 import ast
+from celery.schedules import crontab
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -153,4 +154,15 @@ WEATHER_API_KEY = os.getenv("WEATHER_API_KEY", "xxxx")
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 30
+}
+
+CELERY_BROKER_URL = 'redis://127.0.0.1:6379/0'
+CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379/0'
+
+# Har 10 minutda https://openweathermap.org/api dan ma'lumot olib kelish uchun
+CELERY_BEAT_SCHEDULE = {
+    "forest_data": {
+        "task": "openweathermap.weather.tasks.forest_data",
+        "schedule": crontab(minute="*/10"),
+    }
 }
