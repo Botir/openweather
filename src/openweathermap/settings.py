@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     # external apps
     'rangefilter',
     'import_export',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -149,3 +150,7 @@ STATIC_ROOT = BASE_DIR.parent.joinpath('static_root')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 WEATHER_API_KEY = os.getenv("WEATHER_API_KEY", "xxxx")
 
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 30
+}
